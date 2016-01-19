@@ -51,36 +51,74 @@
 // 	"Volunteer's Number " + volunteerNum + "\n" +
 // 	"Volunteer's Steet " + volunteerStreet)
 
-// var victim = {
-// 	name: prompt("Please enter volunteer's street"),
-// 	number: prompt("Please enter volunteers phone num"),
-// 	street: prompt("Please enter victims street") 
+
+
+// function Victim(name, street, phoneNumber) {
+// 	this.name = name
+// 	this.street = street
+// 	this.phoneNumber = phoneNumber
+
+// 	this.print = function print() {
+// 		return "Name: " + name + "\n" +
+// 			"Street: " + street + "\n" +
+// 			"Phone Number: " + phoneNumber + "\n" 
+// 	}
 // }
 
-function Victim(name, street, phoneNumber) {
-	this.name = name
-	this.street = street
-	this.phoneNumber = phoneNumber
+// var numberOfVictims = prompt("Please enter the number of victims")
+// var victims = []
 
-	this.print = function print() {
-		return "name: " + name + "\n" +
-			"street: " + street + "\n" +
-			"phoneNumber" + phoneNumber + "\n" 
-	}
+// for (i = 0; i < numberOfVictims; i++) {
+// 	var name = prompt("Please enter volunteer's name")
+// 	var phoneNumber = prompt("Please enter volunteers phone num")
+// 	var streetNumber = prompt("Please enter victims street")
+
+// 	var victim = new Victim(name, streetNumber, phoneNumber)
+// 	victims.push(victim)
+// }
+
+// for (j = 0; j < victims.length; j++) {
+// 	alert("Victim Info :" + victims[j].print())
+// }
+
+var victimNames = [];
+var victimPhones = [];
+var victimStreets = [];
+var volunteerNames = [];
+var volunteerPhones = [];
+var volunteerStreets = [];
+
+var more = true;
+while(more) {
+	victimNames.push(prompt("Please enter the victim's name:"));
+	victimPhones.push(prompt("Please enter the victim's phone number:"));
+	victimStreets.push(prompt("Please enter the victim's street:"));
+	more = confirm('Would you like to enter another victim?');
 }
 
-var numberOfVictims = prompt("Please enter the number of victims")
-var victims = []
-
-for (i = 0; i < numberOfVictims; i++) {
-	var name = prompt("Please enter volunteer's name")
-	var phoneNumber = prompt("Please enter volunteers phone num")
-	var streetNumber = prompt("Please enter victims street")
-
-	var victim = new Victim(name, streetNumber, phoneNumber)
-	victims.push(victim)
+more = true;
+while(more) {
+	volunteerNames.push(prompt("Please enter the volunteer's name:"));
+	volunteerPhones.push(prompt("Please enter the volunteer's phone number:"));
+	volunteerStreets.push(prompt("Please enter the volunteer's street:"));
+	more = confirm('Would you like to enter another volunteer?');
 }
 
-for (j = 0; j < victims.length; j++) {
-	alert("Victim Info :" + victims[j].print())
+var message = "# Victims: " + victimNames.length + "\n" +
+	"# Volunteers: " + volunteerNames.length + "\n";
+
+message += "Victims:\n";
+for(var i=0; i<victimNames.length; i++) {
+	message += "  Name: " + victimNames[i] + ", " +
+		"Phone: " + victimPhones[i] + ", " + 
+		"Street: " + victimStreets[i] + "\n";
 }
+
+message += "Volunteers:\n";
+for(var i=0; i<volunteerNames.length; i++) {
+	message += "  Name: " + volunteerNames[i] + ", " +
+		"Phone: " + volunteerPhones[i] + ", " + 
+		"Street: " + volunteerStreets[i] + "\n";
+}
+
+alert(message);
