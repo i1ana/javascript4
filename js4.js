@@ -18,7 +18,10 @@ victimStreet.push(prompt("Please enter victim's street."))
 }
 console.log(victimStreet)
 
+// Volunteer Info 
+
 var volunteerAmount = prompt("How many volunteers do you wish to enter?")
+
 
 volunteerName = []
 for(i=0; i < volunteerAmount; i++){
